@@ -6,6 +6,7 @@ class QuizBrain {
   //an qua cau hoi 13.
   int _questionNumber = 0;
   final List<Question> _questionBank = [
+    //Phai co final de ch trinh k bao loi. do sd old version.
     //Organize the questions & answers together into an object.
     //We create the objects by creating a class.
     Question(
@@ -62,7 +63,7 @@ class QuizBrain {
   ];
   //Tao function de cau hoi go to the next question.
   void nextQuestion() {
-    if (_questionNumber <= _questionBank.length) {
+    if (_questionNumber < _questionBank.length) {
       /* neu khai bao ban dau la int _questionNumber = 0;thi ta phai viet
        _questionBank.length -1 de khi ta an nhieu hon 12 lan thi app k bao loi over range.
       neu ta de la: _questionNumber < _questionBank.length
@@ -92,6 +93,7 @@ class QuizBrain {
     if (_questionNumber >= _questionBank.length - 1) {
       //TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
       print('${_questionNumber + 1}/${_questionBank.length}');
+
       return true;
     } else {
       return false;

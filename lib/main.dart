@@ -32,6 +32,8 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
+  int countRightAns = 0;
+  int countWrongAns = 0;
 
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = quizBrain.getCorrectAnswer();
@@ -47,7 +49,8 @@ class _QuizPageState extends State<QuizPage> {
         Alert(
           context: context,
           title: 'Finished!',
-          desc: 'You\'ve reached the end of the quiz.',
+          desc: 'You\'ve reached the end of the quiz.'
+              'You got $countRightAns right answers and $countWrongAns incorrect answers',
         ).show();
 
         //TODO Step 4 Part C - reset the questionNumber,
@@ -58,12 +61,14 @@ class _QuizPageState extends State<QuizPage> {
       } else {
         //TODO: Step 6 - If we've not reached the end, ELSE do the answer checking steps:
         if (userPickedAnswer == correctAnswer) {
+          countRightAns++;
           scoreKeeper.add(Icon(
             Icons.check,
             color: Colors.green,
           ));
           //print('You got it right!');
         } else {
+          countWrongAns++;
           scoreKeeper.add(Icon(
             Icons.close,
             color: Colors.red,
