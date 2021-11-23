@@ -4,7 +4,7 @@ class QuizBrain {
   //Khai bao int questionNumber = 0; o quiz_brain de chi file nay co the dieu khien. va ta k bi qua range khi an qua cau hoi thu 13.
   //vi list cau hoi chi co 13 cau. neu ta khai bao int questionNumber = 0 o file main.dart thi app bao loi over range khi ta
   //an qua cau hoi 13.
-  int _questionNumber = 0;
+  int _questionNumber = 0; //co 13 cau hoi nen bien _questionNumber tu 0-12
   final List<Question> _questionBank = [
     //Phai co final de ch trinh k bao loi. do sd old version.
     //Organize the questions & answers together into an object.
@@ -53,24 +53,10 @@ class QuizBrain {
         questionText:
             'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         questionAnswer: true),
-    /*Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
-    Question(
-        q: 'Approximately one quarter of human bones are in the feet.',
-        a: true),
-    Question(q: 'A slug\'s blood is green.', a: true)
-
-     */
   ];
   //Tao function de cau hoi go to the next question.
   void nextQuestion() {
     if (_questionNumber < _questionBank.length) {
-      /* neu khai bao ban dau la int _questionNumber = 0;thi ta phai viet
-       _questionBank.length -1 de khi ta an nhieu hon 12 lan thi app k bao loi over range.
-      neu ta de la: _questionNumber < _questionBank.length
-      thi app bao:'RangeError (index): Invalid value: Not in inclusive range 0..12: 13'
-
-
-       */
       _questionNumber++; //chuyen sang next question
     }
     print('$_questionNumber/${_questionBank.length}');

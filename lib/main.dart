@@ -40,12 +40,6 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
       if (quizBrain.isFinished() == true) {
         //TODO Step 4 Part A - show an alert using rFlutter_alert,
-
-        //This is the code for the basic alert from the docs for rFlutter Alert:
-        //this is Basic Alert
-        //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
-
-        //Modified for our purposes:
         Alert(
           context: context,
           title: 'Finished!',
@@ -66,38 +60,17 @@ class _QuizPageState extends State<QuizPage> {
             Icons.check,
             color: Colors.green,
           ));
-          //print('You got it right!');
         } else {
           countWrongAns++;
           scoreKeeper.add(Icon(
             Icons.close,
             color: Colors.red,
           ));
-          //print('Wrong answer!');
         }
         quizBrain.nextQuestion();
       }
     });
   }
-
-  /*// now we dont want to print the text. we want to have icon instead
-      if (userPickedAnswer == correctAnswer) {
-        scoreKeeper.add(Icon(
-          Icons.check,
-          color: Colors.green,
-        ));
-        //print('You got it right!');
-      } else {
-        scoreKeeper.add(Icon(
-          Icons.close,
-          color: Colors.red,
-        ));
-        //print('Wrong answer!');
-      }
-      quizBrain.nextQuestion();
-    });
-  }
-       */
 
   @override
   Widget build(BuildContext context) {
@@ -126,13 +99,8 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: TextButton(
-              /*style: TextButton.styleFrom(
-                primary: Colors.purple,
-               */
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.green)),
-              //textColor: Colors.white,
-              //color: Colors.green,
               child: Text(
                 'True',
                 style: TextStyle(
@@ -143,17 +111,6 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked true.
                 checkAnswer(true);
-                //questionNumber++; print(questionNumber);
-                /*setState(() {
-                  scoreKeeper.add(
-                    Icon(
-                      Icons.check,
-                      color: Colors.green,
-                    ),
-                  );
-                }
-                );
-                */
               },
             ),
           ),
@@ -172,16 +129,8 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                /*Neu ta gan cau tra loi la true before check answer.
-                    quizBrain.questionBank[questionsNumber].questionAnswer = true;
-                    khi do every answer ma ban chon dap an True thi chuong trinh in ra 'you got it right',
-                    du thuc te dap an phai cho la False.
-
-
-                    */
                 //The user picked false.
                 checkAnswer(false);
-                //print(questionNumber);
               },
             ),
           ),
