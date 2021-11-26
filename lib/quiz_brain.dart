@@ -56,6 +56,7 @@ class QuizBrain {
   ];
   //Tao function de cau hoi go to the next question.
   void nextQuestion() {
+    //tao ham chuyen sang cau hoi tiep theo neu cau hoi nam trong pham vi tu 0-12
     if (_questionNumber < _questionBank.length) {
       _questionNumber++; //chuyen sang next question
     }
@@ -63,6 +64,7 @@ class QuizBrain {
   }
 
   //tao ham de khi ng dung chon dap an xong thi se chuyen sang cau hoi tiep theo.
+  //Create a method called   String getQuestionText() that returns the text of the question for the first question from _questionBank.
   String getQuestionText() {
     return _questionBank[_questionNumber].questionText;
   }
@@ -77,6 +79,7 @@ class QuizBrain {
   */
   bool isFinished() {
     if (_questionNumber >= _questionBank.length - 1) {
+      //sd dau >= de khi chon den cau hoi thu 13 thi app se in ra Alert voi ket qua dat dc.
       //TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
       print('${_questionNumber + 1}/${_questionBank.length}');
 

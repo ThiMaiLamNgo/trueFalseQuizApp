@@ -4,6 +4,7 @@ import 'quiz_brain.dart';
 //import the alert packege de co the birta alert when you finish all the questions
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+//Create a new quizBrain object from the QuizBrain class.
 QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(Quizzler());
